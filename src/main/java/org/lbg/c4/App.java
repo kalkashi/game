@@ -1,13 +1,14 @@
 package org.lbg.c4;
 
-import java.util.Scanner;
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+    public static void main( String[] args ) {
+        InitGame g = new InitGame();
+        g.letsGo();
 
-public class App {
-    private final static Scanner sc = new Scanner(System.in);
-
-    public static void main(String[] args) {
-        Board b = new Board(sc);
-        
-        b.initialiseBoard();
     }
 }
