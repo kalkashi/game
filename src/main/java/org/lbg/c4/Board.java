@@ -25,7 +25,7 @@ public class Board {
                 }
             } catch (InputMismatchException e) {
                 System.out.println("Board size must be an integer value between 3 and 10");
-                scanner.nextLine(); // Clear the invalid input
+                scanner.nextLine();
             }
         }
     }
