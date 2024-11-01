@@ -1,32 +1,78 @@
 package org.lbg.c4;
 
 import java.util.InputMismatchException;
+
+import java.util.Random;
 import java.util.Scanner;
 
 public class Board {
-    int size = 0;
-    int max_size = 10;
-    int min_size = 3;
+
+    int size=4;
+    char[][] game_board;
+
+    Random r = new Random();
+
+    Treasure t ;
+    Monster m ;
+    Player p;
     private final Scanner scanner;
 
-    public Board(Scanner scanner) {
+
+
+    public Board(int size,Scanner scanner){
+        this.size = size;
+        this.game_board = new char[size][size];
         this.scanner = scanner;
+        int pX = r.nextInt(size);
+        int pY = r.nextInt(size);
+        p = new Player(pX, pY);
+
+        int mX = r.nextInt(size);
+        int mY = r.nextInt(size);
+        m = MonsterDB.create(mX,mY);
+
+        int tX = r.nextInt(size);
+        int tY = r.nextInt(size);
+        t = new Treasure(tX, tY);
+
     }
 
-    public void initialiseBoard() {
-        System.out.println("Please specify a board size between 3 and 10");
-        while (this.size < min_size || this.size > max_size) {
-            try {
-                int result = scanner.nextInt();
-                if (result < min_size || result > max_size) {
-                    System.out.println("The board size cannot be smaller than 3 or larger than 10");
-                } else {
-                    size = result;
-                }
-            } catch (InputMismatchException e) {
-                System.out.println("Board size must be an integer value between 3 and 10");
-                scanner.nextLine(); // Clear the invalid input
-            }
-        }
+
+
+
+
+
+    public Treasure findTreasure(){
+        return t;
     }
+
+    public Player findPlayer(){
+        return p;
+    }
+
+    public Monster findMonster(){
+        return m;
+    }
+
+    public int getSize(){
+        return size;
+    }
+
+    public boolean foundMonster() {
+        if( p.getXValue() == m.getXValue() && p.getYValue() == m.getYValue()){
+            return true;
+        }
+        return false;
+    }
+
+    public boolean foundTreasure() {
+        if( p.getXValue() == t.getXValue() && p.getYValue() == t.getYValue()){
+            return true;
+        }
+        return false;
+    }
+
+
+
+
 }
