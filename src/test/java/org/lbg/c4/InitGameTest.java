@@ -9,15 +9,15 @@ import java.util.Scanner;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class BoardTest {
+public class InitGameTest {
 
-    private Board cut; // Class Under Test
+    private InitGame cut;
     private Scanner mockScanner;
 
     @BeforeEach
     public void setUp() {
         mockScanner = Mockito.mock(Scanner.class);
-        cut = new Board(mockScanner);
+        cut = new InitGame(mockScanner);
     }
 
     @Test
@@ -49,7 +49,9 @@ public class BoardTest {
 
     @Test
     public void testInitialiseBoard_NonIntegerInput() {
-        Mockito.when(mockScanner.nextInt()).thenThrow(new InputMismatchException()).thenReturn(7);
+        Mockito.when(mockScanner.nextInt())
+                .thenThrow(new InputMismatchException())
+                .thenReturn(7); // Valid input
 
         cut.initialiseBoard();
 

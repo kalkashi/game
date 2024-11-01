@@ -39,9 +39,6 @@ public class Board {
 
 
 
-
-
-
     public Treasure findTreasure(){
         return t;
     }

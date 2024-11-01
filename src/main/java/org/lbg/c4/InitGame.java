@@ -5,31 +5,31 @@ import java.util.Scanner;
 
 
 public class InitGame {
-    Board board;
-
+    private final Board board;
+    private final Scanner scanner;
     int size = 0;
     int maxSize = 10;
     int minSize = 3;
     boolean hasUserFinishedGame = false;
 
-    public InitGame(){
+    public InitGame(Scanner scanner){
 
+        this.scanner = scanner;
+        this.board = null;
     }
-
     public void initialiseBoard() {
-        Scanner obj = new Scanner(System.in);
         System.out.println("Please specify a board size between 3 and 10");
         while (this.size < minSize || this.size > maxSize) {
             try {
-                int result = obj.nextInt();
-                if (result < 3 || result > 10) {
+                int result = scanner.nextInt();
+                if (result < minSize || result > maxSize) {
                     System.out.println("The board size cannot be smaller than 3 or larger than 10");
                 } else {
                     size = result;
                 }
             } catch (InputMismatchException e) {
                 System.out.println("Board size must be an integer value between 3 and 10");
-                obj.nextLine();
+                scanner.nextLine();
             }
         }
     }
