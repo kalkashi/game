@@ -7,13 +7,15 @@ public class Board {
     public static void initialiseBoard() {
         Scanner obj = new Scanner(System.in);
         System.out.println("Please specify a board size between 3 and 10");
-        while (size <= 3 || size >= 10) {
+        while (size < 3 || size > 10) {
             try {
-                obj.nextInt();
+                size=obj.nextInt();
+                if(size<3 || size>10){
+                    System.out.println("Please specify a board size between 3 and 10");
+                }
             } catch (Exception e) {
-                System.out.println("Your input is not correct");
+                System.out.println("Please enter an integer");
             }
-
         }
     }
 }
