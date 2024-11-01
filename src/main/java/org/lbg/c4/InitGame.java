@@ -57,12 +57,25 @@ public class InitGame {
             }
 
             System.out.println("Enter your move player , hope you get the treasure ");
-            String val = obj.next().toUpperCase();
-            Controls ctrl = Controls.valueOf(val);
-            board.findPlayer().shift(ctrl,board.getSize());
 
+            try {
+                String val = obj.next().toUpperCase();
+
+                // Check for valid input using equals
+                if (!val.equals("RIGHT") && !val.equals("LEFT") && !val.equals("UP") && !val.equals("DOWN")) {
+                    System.out.println("Please enter a valid move");
+                } else {
+                    Controls ctrl = Controls.valueOf(val);
+                    board.findPlayer().shift(ctrl, board.getSize());
+                }
+            } catch (IllegalArgumentException e) {
+                // Handle invalid enum value if necessary
+                System.out.println("Please enter a valid move");
+            } catch (InputMismatchException e) {
+                System.out.println("Please enter a valid move");
+                obj.nextLine(); // Clear the invalid input
+            }
         }
-
 
     }
 }
