@@ -2,6 +2,7 @@ package org.lbg.c4;
 
 public abstract class Monster {
 
+
     int x;
     int y;
 

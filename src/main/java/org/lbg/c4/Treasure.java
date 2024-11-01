@@ -1,6 +1,7 @@
 package org.lbg.c4;
 
 public class Treasure {
+
     int x;
     int y;
 
@@ -15,4 +16,5 @@ public class Treasure {
     public int getYValue(){
         return y;
     }
+
 }

@@ -6,8 +6,7 @@ package org.lbg.c4;
  */
 public class App 
 {
-    public static void main( String[] args )
-    {
+    public static void main( String[] args ) {
         InitGame g = new InitGame();
         g.letsGo();
 

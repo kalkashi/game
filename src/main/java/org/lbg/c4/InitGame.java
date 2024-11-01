@@ -37,8 +37,9 @@ public class InitGame {
     public void letsGo() {
 
         initialiseBoard();
-        Board board = new Board(size);
+
         Scanner obj = new Scanner(System.in);
+        Board board = new Board(size,obj);
         while(hasUserFinishedGame == false){
             System.out.println("Position of player: " + board.p.getXValue() + " " + board.p.getYValue());
             System.out.println("Position of monster: " + board.m.getXValue() + " " + board.m.getYValue());

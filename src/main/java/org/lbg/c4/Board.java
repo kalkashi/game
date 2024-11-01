@@ -1,6 +1,7 @@
 package org.lbg.c4;
 
 import java.util.InputMismatchException;
+
 import java.util.Random;
 import java.util.Scanner;
 
@@ -14,12 +15,14 @@ public class Board {
     Treasure t ;
     Monster m ;
     Player p;
+    private final Scanner scanner;
 
 
 
-    public Board(int size){
+    public Board(int size,Scanner scanner){
         this.size = size;
         this.game_board = new char[size][size];
+        this.scanner = scanner;
         int pX = r.nextInt(size);
         int pY = r.nextInt(size);
         p = new Player(pX, pY);
@@ -68,6 +71,7 @@ public class Board {
         }
         return false;
     }
+
 
 
 
