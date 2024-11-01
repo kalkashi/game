@@ -3,12 +3,18 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Board {
-    static int size = 0;
+     int size = 0;
+     int maxSize = 10;
+     int minsize = 3;
 
-    public static void initialiseBoard() {
+    public Board() {
+
+    }
+
+    public void initialiseBoard() {
         Scanner obj = new Scanner(System.in);
         System.out.println("Please specify a board size between 3 and 10");
-        while (size < 3 || size > 10) {
+        while (this.size < minsize || this.size > maxSize) {
             try {
                 int result = obj.nextInt();
                 if(result < 3 || result > 10){

@@ -5,8 +5,7 @@ import java.util.Scanner;
 public class App {
 
     public static void main(String[] args) {
-        Board.initialiseBoard();
-
-
+        Board b = new Board();
+        b.initialiseBoard();
     }
 }
